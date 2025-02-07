@@ -6,10 +6,12 @@ import { CONFIG } from 'src/config-global';
 
 // ----------------------------------------------------------------------
 
-const isFirebase = CONFIG.auth.method === 'firebase';
+const isFirebase=CONFIG.auth.method === 'firebase';
 
-export const firebaseApp = isFirebase ? initializeApp(CONFIG.firebase) : {};
+export const firebaseApp=isFirebase ? initializeApp(CONFIG.firebase) : {};
 
-export const AUTH = isFirebase ? getAuth(firebaseApp) : {};
+export const AUTH=isFirebase ? getAuth(firebaseApp) : {};
 
-export const FIRESTORE = isFirebase ? getFirestore(firebaseApp) : {};
+export const FIRESTORE=isFirebase ? getFirestore(firebaseApp) : {};
+
+
