@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography, Paper } from '@mui/material';
+
+import { Paper, Typography } from '@mui/material';
 
 export function MyCustomComponent() {
   return (

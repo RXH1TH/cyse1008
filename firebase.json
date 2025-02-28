@@ -3,20 +3,13 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
- "hosting": {
-   "hosting": {
-    "source": ".next",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "frameworksBackend": {
-      "region": "us-central1"
-    },
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
     ]
-  }
   },
   "functions": [
     {
@@ -33,9 +26,60 @@
       "predeploy": [
         "npm run lint || exit 0"
       ]
+    },
+    {
+      "source": "cyse1008",
+      "codebase": "cyse1008",
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    },
+    {
+      "source": "firebase",
+      "codebase": "firebase",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
     }
   ],
   "storage": {
     "rules": "storage.rules"
+  },
+  "emulators": {
+    "dataconnect": {
+      "dataDir": "dataconnect/.dataconnect/pgliteData",
+      "port": 9399
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  },
+  "dataconnect": {
+    "source": "dataconnect"
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  },
+  "extensions": {},
+  "database": {
+    "rules": "database.rules.json"
   }
 }
