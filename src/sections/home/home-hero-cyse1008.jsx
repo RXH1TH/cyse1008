@@ -12,7 +12,7 @@ import { ExtendedEuclideanAlgorithm } from './components/extended-euclidean-algo
 
 const lgKey = 'lg';
 
-import React, { useState } from 'react';
+
 import { Box, Button } from '@mui/material';
 import { MyCustomComponent } from './MyCustomComponent';
 
